@@ -31,6 +31,18 @@ public class JsonParser {
 	 * @return
 	 */
 	public String getElement(String expr) {
-		return jsonObj.getString(expr);
+		try {
+			return jsonObj.getString(expr);
+		} catch (JSONException e) {}
+		
+		try {
+			return Integer.toString(jsonObj.getInt(expr));
+		} catch (JSONException e) {}
+		
+		try {
+			return Double.toString(jsonObj.getDouble(expr));
+		} catch (JSONException e) {}
+		
+		return "";
 	}
 }

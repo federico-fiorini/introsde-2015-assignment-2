@@ -14,11 +14,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 @Entity
 @Table(name="person") 
 @NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
 @XmlRootElement(name="person")
+@XmlType(propOrder={"id","firstname","lastname", "email", "birthdate", "healthProfile"})
 public class Person implements Serializable {
 	
     private static final long serialVersionUID = 1L;

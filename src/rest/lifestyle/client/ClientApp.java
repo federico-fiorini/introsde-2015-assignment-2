@@ -180,7 +180,7 @@ public class ClientApp {
 		String xmlPerson = "<person>"
 			+ "<firstname>Chuck</firstname>"
 			+ "<lastname>Norris</lastname>"
-			+ "<birthdate>1945-01-01:00:00+01:00</birthdate>"
+			+ "<birthdate>1945-01-01</birthdate>"
 			+ "<healthProfile>"
 	        + "<measure>"
 	        + "<type>weight</type>"
@@ -210,6 +210,29 @@ public class ClientApp {
 		printResponseOutput(response, reqNumber, method, url, accept, isValid,
 				content, stringFormatter.formatXml(bodyXml));
 		
+		// JSON
+		accept = "application/json";
+		content = "application/json";
+		String jsonPerson = "{"
+			+ "\"firstname\": \"Chuck\","
+			+ "\"lastname\": \"Norris\","
+			+ "\"birthdate\": \"1945-01-01\","
+			+ "\"measure\": [ {"
+	        + "\"type\": \"weight\","
+	        + "\"value\" : \"78.9\""
+	        + "}, {"
+	        + "\"type\": \"height\","
+	        + "\"value\" : \"172\""
+	        + "} ]"
+	        + "}";
+		
+		response = personClient.postNewPersonJson(jsonPerson);
+		bodyJson = fetchObjectFromResponse(response, stringClass);
+		jsonParser.loadJson(bodyJson);
+		String personId = jsonParser.getElement("id");
+		isValid = !personId.equals("");
+		printResponseOutput(response, reqNumber, method, url, accept, isValid,
+				content, stringFormatter.formatJson(bodyJson));
     }
 
     /**
