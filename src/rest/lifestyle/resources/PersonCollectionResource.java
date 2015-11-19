@@ -1,13 +1,8 @@
 package rest.lifestyle.resources;
 
 import java.io.IOException;
+import java.net.URI;
 import java.util.List;
-import javax.ejb.*;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
-import javax.persistence.PersistenceUnit;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -17,6 +12,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
 import rest.lifestyle.model.Person;
@@ -41,9 +38,15 @@ public class PersonCollectionResource {
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Person newPerson(Person person) throws IOException {
+    public Response newPerson(Person person) throws IOException {
+
         System.out.println("Creating new person...");            
-        return Person.savePerson(person);
+        person = Person.savePerson(person);
+        
+        URI location = UriBuilder.fromUri(uriInfo.getAbsolutePath())
+        	.path(Integer.toString(person.getId()))
+        	.build();
+        return Response.created(location).entity(person).build();     
     }
 
     @Path("{personId}")

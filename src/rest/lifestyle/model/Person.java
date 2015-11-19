@@ -62,7 +62,7 @@ public class Person implements Serializable {
     /**
      * Get firstname
      */
-    public String getFirstName(){
+    public String getFirstname(){
         return firstname;
     }
 
@@ -90,7 +90,7 @@ public class Person implements Serializable {
         return email;
     }
 
-    @XmlElementWrapper(name = "healthProfile")
+    @XmlElementWrapper(name="healthProfile")
     @XmlElement(name="measure")
     public List<HealthProfile> getHealthProfile() {
         return this.healthProfile;
@@ -113,7 +113,7 @@ public class Person implements Serializable {
      * Set firstname
      * @param firstname
      */
-    public void setFirstName(String firstname){
+    public void setFirstname(String firstname){
         this.firstname = firstname;
     }
 
@@ -220,7 +220,7 @@ public class Person implements Serializable {
     		this.setEmail(p.email);
     	}
     	if (p.firstname != null) {
-    		this.setFirstName(p.getFirstName());
+    		this.setFirstname(p.getFirstname());
     	}
     	if (p.lastname != null) {
     		this.setLastname(p.getLastname());
@@ -232,6 +232,7 @@ public class Person implements Serializable {
         p = em.merge(this);
         tx.commit();
         LifeStyleDao.instance.closeConnections(em);
+
         return p;
     }
 

@@ -62,12 +62,12 @@ public class PersonResource {
         	throw new NotFoundException();
         }
         
-        Response res = Response.created(uriInfo.getAbsolutePath()).build();
         
-        existing.updatePerson(person);
-
+        
         System.out.println("Updating person " + this.id);
-        return res;
+
+        person = existing.updatePerson(person);
+        return Response.status(200).entity(person).build();        
     }
 
     @DELETE
@@ -96,7 +96,7 @@ public class PersonResource {
     }
 
     @Path("{measureType}")
-    public HealthProfileHistoryResource getPerson(@PathParam("measureType") String measureType) {
+    public HealthProfileHistoryResource getMeasureType(@PathParam("measureType") String measureType) {
         return new HealthProfileHistoryResource(uriInfo, request, id, measureType);
     }
 }

@@ -60,6 +60,7 @@
             </fileset>
         </path>
         <!-- PART 3: compilation and execution targets for this session -->
+    	<!-- <target name="init"> -->
         <target name="init" depends="install-ivy, resolve">
             <echo message="Init has been called" />
             <mkdir dir="${build.dir}" />
@@ -106,6 +107,20 @@
             </java>
         </target>
         
+    	<target name="execute.client" depends="install">
+            <echo message="app start rest.lifestyle.client.ClientApp in ${build.dir}" />
+            <java classname="rest.lifestyle.client.ClientApp" classpath="${build.dir}" fork="true">
+                <arg value="$JAVA_OPTS  -cp" />
+                <classpath>
+                    <path location="build" />
+                    <fileset dir="WebContent/WEB-INF/lib">
+                        <include name="**/*.jar" />
+                        <include name="*.jar" />
+                    </fileset>
+                </classpath>
+            </java>
+        </target>
+
         <!-- make sure you have created first the WebContent folder, including a META-INF folder, WEB-INF/web.xml file and WEB-INF/lib folder -->
         <target name="create.war" depends="install">
             <war destfile="introsde-2015-assignment-2.war" webxml="${web.dir}/WebContent/WEB-INF/web.xml">
