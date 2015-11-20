@@ -8,8 +8,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -99,7 +97,7 @@ public class Person implements Serializable {
     }
 
     @XmlTransient
-    public List<HealthProfileHistory> getHealthProfileHistory() {
+    public List<HealthProfileHistory> getMeasureHistory() {
         return this.healthProfileHistory;
     }
 
@@ -167,7 +165,9 @@ public class Person implements Serializable {
     public static Person getPersonById(int personId) {
         EntityManager em = LifeStyleDao.instance.createEntityManager();
         Person p = em.find(Person.class, personId);
-        em.refresh(p);
+        if (p != null)
+        	em.refresh(p);
+
         LifeStyleDao.instance.closeConnections(em);
 
         return p;
@@ -262,7 +262,7 @@ public class Person implements Serializable {
     	// For each health profile measure: set person id and current timestamp
     	for (HealthProfile healthProfile : p.healthProfile) {
     		healthProfile.setPerson(p);
-    		healthProfile.setTimestamp(date);
+    		healthProfile.setCreated(date);
     	}
 
     	return p;

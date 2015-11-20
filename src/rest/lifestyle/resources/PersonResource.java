@@ -62,8 +62,6 @@ public class PersonResource {
         	throw new NotFoundException();
         }
         
-        
-        
         System.out.println("Updating person " + this.id);
 
         person = existing.updatePerson(person);

@@ -4,19 +4,15 @@ import rest.lifestyle.dao.LifeStyleDao;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name="health_profile") 
-@XmlRootElement(name="HealthProfile")
+@XmlRootElement(name="measure")
 @NamedQuery(name="HealthProfile.findByPersonAndType",
 			query="SELECT h FROM HealthProfile h "
 				+ "WHERE h.person = :person AND h.measureType = :measureType")
@@ -86,7 +82,7 @@ public class HealthProfile implements Serializable {
 	 * Get timestamp
 	 * @return
 	 */
-	@XmlTransient
+	@XmlElement(name="created")
 	public Date getTimestamp() {
 		return this.timestamp;
 	}
@@ -127,7 +123,7 @@ public class HealthProfile implements Serializable {
 	 * Set timestamp
 	 * @param timestamp
 	 */
-	public void setTimestamp(Date timestamp) {
+	public void setCreated(Date timestamp) {
 		this.timestamp = timestamp;
 	}
 	
@@ -171,7 +167,7 @@ public class HealthProfile implements Serializable {
     	
     	if (currentId == null) { // Persist new measure
     		
-    		newMeasure.setTimestamp(date);
+    		newMeasure.setCreated(date);
     		tx.begin();
     		newHealthProfile = em.merge(newMeasure);
             tx.commit();
@@ -181,7 +177,7 @@ public class HealthProfile implements Serializable {
     		HealthProfile healthProfile = em.find(HealthProfile.class, (int) currentId);
             tx.begin();
             healthProfile.setMeasureValue(newMeasure.getMeasureValue());
-            healthProfile.setTimestamp(date);
+            healthProfile.setCreated(date);
             tx.commit();
             newHealthProfile = healthProfile;
     	}

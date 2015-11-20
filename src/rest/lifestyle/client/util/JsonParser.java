@@ -6,31 +6,37 @@ import org.json.JSONObject;
 
 public class JsonParser {
 
-	JSONObject jsonObj;
+	JSONObject jsonObj = null;
+	JSONArray jsonArr = null;
 	
 	/**
 	 * Load JSON string
 	 * @param json
 	 */
 	public void loadJson(String json) {
-		jsonObj = new JSONObject(json);
-	}
-	
-	/**
-	 * Get JSON array
-	 * @param expr
-	 * @return
-	 */
-	public JSONArray getArray(String expr) {
-		return jsonObj.getJSONArray(expr);
+		
+		// Load JSON object
+		if (json.startsWith("{")) {
+			jsonObj = new JSONObject(json);
+		}
+		
+		// Load JSON array
+		if (json.startsWith("[")) {
+			jsonArr = new JSONArray(json);
+		}
 	}
 	
 	/**
 	 * Get JSON element
 	 * @param expr
 	 * @return
+	 * @throws Exception 
 	 */
-	public String getElement(String expr) {
+	public String getElement(String expr) throws Exception {
+		
+		if (jsonObj == null)
+			throw new Exception("Not a JSON object");
+
 		try {
 			return jsonObj.getString(expr);
 		} catch (JSONException e) {}
@@ -44,5 +50,17 @@ public class JsonParser {
 		} catch (JSONException e) {}
 		
 		return "";
+	}
+	
+	/**
+	 * Count how many element in JSON list
+	 * @return
+	 * @throws Exception 
+	 */
+	public int countList() throws Exception {
+		if (jsonArr == null)
+			throw new Exception("Not a JSON object");
+		
+		return jsonArr.length();
 	}
 }

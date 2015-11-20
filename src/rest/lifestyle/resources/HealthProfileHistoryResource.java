@@ -7,18 +7,15 @@ import rest.lifestyle.model.Person;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
-import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 public class HealthProfileHistoryResource {
@@ -65,7 +62,7 @@ public class HealthProfileHistoryResource {
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_XML })
-    public HealthProfile updateMeasure(HealthProfile newMeasure) {
+    public HealthProfile newMeasure(HealthProfile newMeasure) {
 
         Person person = Person.getPersonById(this.id);
         newMeasure.setPerson(person);
@@ -76,20 +73,22 @@ public class HealthProfileHistoryResource {
             throw new NotFoundException();
         }
         
-        System.out.println("Creating/updating measure");
+        System.out.println("Creating/updating measure for person " + this.id);
 
         HealthProfile current = new HealthProfile();
         Integer currentId = null;
 
-        // Get current measure and copy to history
+        // Get current measure
         current = HealthProfile.getMeasureByType(person, measureType);
-        if (current != null) {
-        	HealthProfileHistory.copyHealthProfileToHistory(current);
+        if (current != null)
         	currentId = (Integer) current.getId();
-        }
 
-        // Set new measure and update on DB
+        // Update current measure or create new one
         current = HealthProfile.updateHealthProfile(currentId, newMeasure);
+        
+        // Copy updated measure to history
+        HealthProfileHistory.copyHealthProfileToHistory(current);
+
     	return current;
     }
 

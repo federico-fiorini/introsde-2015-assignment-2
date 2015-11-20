@@ -7,10 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -174,6 +171,9 @@ public class HealthProfileHistory implements Serializable {
         } catch (Exception e) {
         	return null;
         }
+
+        if (measure != null)
+        	em.refresh(measure);
 
         LifeStyleDao.instance.closeConnections(em);
         

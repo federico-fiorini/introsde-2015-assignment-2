@@ -50,7 +50,6 @@ public class XmlParser {
         	doc = builder.parse(is);
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			doc = null;
-			e.printStackTrace();
 		}
     }
 
@@ -64,7 +63,6 @@ public class XmlParser {
         	XPathExpression expr = xpath.compile(xpathExpr);
 			return (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
 		} catch (XPathExpressionException e) {
-			e.printStackTrace();
 			return null;
 		}
     }

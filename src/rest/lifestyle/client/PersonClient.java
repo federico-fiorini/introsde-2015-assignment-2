@@ -1,21 +1,16 @@
 package rest.lifestyle.client;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.jackson.JacksonFeature;
-
-import rest.lifestyle.model.Person;
 
 public class PersonClient {
 
@@ -23,7 +18,7 @@ public class PersonClient {
 	private final transient WebTarget baseTarget;
 
 	/**
-	 * Class contructor
+	 * Class constructor
 	 * @param serviceUrl
 	 */
 	public PersonClient(URI serviceUrl) {
@@ -132,6 +127,19 @@ public class PersonClient {
 				.path("person");
 		
 		return fetchPostResponse(target, body, MediaType.APPLICATION_JSON);
+	}
+	
+	/**
+	 * Delete person by id
+	 * @param personId
+	 * @return
+	 */
+	public Response deletePerson(int personId) {
+		WebTarget target = baseTarget
+				.path("person")
+				.path(Integer.toString(personId));
+
+		return target.request().delete();
 	}
 
 	/**
