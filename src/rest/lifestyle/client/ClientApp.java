@@ -1,5 +1,6 @@
 package rest.lifestyle.client;
 
+import java.io.PrintWriter;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,9 @@ import rest.lifestyle.client.util.XmlParser;
 import rest.lifestyle.client.util.JsonParser;
 
 public class ClientApp {
+
+	static PrintWriter xmlLogWriter;
+	static PrintWriter jsonLogWriter;
 
 	static StringFormatter stringFormatter = new StringFormatter();
 	static XmlParser xmlParser = new XmlParser();
@@ -42,8 +46,17 @@ public class ClientApp {
 
 	public static void main(String[] args) throws Exception {
 		
-		System.out.println("============================================================");
-		System.out.println("Server base URL: " + getBaseURI());
+		// Define writers
+		xmlLogWriter = new PrintWriter("client-server-xml.log", "UTF-8");
+		jsonLogWriter = new PrintWriter("client-server-json.log", "UTF-8");
+		
+		String message = "============================================================\n"
+			+ "Server base URL: " + getBaseURI();
+
+		// Write logs
+		System.out.println(message);
+		xmlLogWriter.println(message);
+		jsonLogWriter.println(message);
         
 		//#################
 		//#  REQUEST 1    
@@ -182,14 +195,14 @@ public class ClientApp {
 			+ "<lastname>Norris</lastname>"
 			+ "<birthdate>1945-01-01</birthdate>"
 			+ "<healthProfile>"
-	        + "<measure>"
-	        + "<type>weight</type>"
+	        + "<measurement>"
+	        + "<measure>weight</measure>"
 	        + "<value>78.9</value>"
-	        + "</measure>"
-	        + "<measure>"
-	        + "<type>height</type>"
+	        + "</measurement>"
+	        + "<measurement>"
+	        + "<measure>height</measure>"
 	        + "<value>172</value>"
-	        + "</measure>"
+	        + "</measurement>"
 	        + "</healthProfile>"
 		    + "</person>";
 		
@@ -217,11 +230,11 @@ public class ClientApp {
 			+ "\"firstname\": \"Chuck\","
 			+ "\"lastname\": \"Norris\","
 			+ "\"birthdate\": \"1945-01-01\","
-			+ "\"measure\": [ {"
-	        + "\"type\": \"weight\","
+			+ "\"healthProfile\": [ {"
+	        + "\"measure\": \"weight\","
 	        + "\"value\" : \"78.9\""
 	        + "}, {"
-	        + "\"type\": \"height\","
+	        + "\"measure\": \"height\","
 	        + "\"value\" : \"172\""
 	        + "} ]"
 	        + "}";
@@ -475,6 +488,10 @@ public class ClientApp {
 		printResponseOutput(response, reqNumber, method, url, accept, isValid,
 				content, stringFormatter.formatJson(bodyJson));
 		
+		
+		// Close log writers
+		xmlLogWriter.close();
+		jsonLogWriter.close();
     }
 
     /**
@@ -488,16 +505,34 @@ public class ClientApp {
      */
     private static void printResponseOutput(Response response, int reqNumber, String method,
     		String url, String accept, boolean isValid, String content, String body) {
-    	
-    	System.out.println("============================================================");
-		System.out.print("Request #" + reqNumber + ": " + method + " " + url);
-		if (accept != "") System.out.print(" Accept: " + accept);
-		if (content != "") System.out.print(" Content-Type: " + content);
 
+    	// Build log message
+    	String message = "============================================================"
+    		+ "\nRequest #" + reqNumber + ": " + method + " " + url;
+		if (accept != "") message += " Accept: " + accept;
+		if (content != "") message += " Content-Type: " + content;
+		
 		int status = response.getStatus();
-		System.out.println("\n=> Result: " + isResponseValid(status, isValid));
-		System.out.println("=> HTTP Status: " + response.getStatus());
-		System.out.println(body);
+		message += "\n=> Result: " + isResponseValid(status, isValid);
+		message += "\n=> HTTP Status: " + response.getStatus();
+		message += "\n" + body;
+		
+		// Print message and save to correct log files
+		System.out.println(message);
+		
+		switch (accept) {
+			case "application/xml":
+				xmlLogWriter.println(message);
+				break;
+				
+			case "application/json":
+				jsonLogWriter.println(message);
+				break;
+
+			default:
+				xmlLogWriter.println(message);
+				jsonLogWriter.println(message);
+		}		
     }
 
     /**
@@ -526,6 +561,6 @@ public class ClientApp {
 	 * @return
 	 */
     private static URI getBaseURI() {
-        return UriBuilder.fromUri("http://10.198.201.207:5700/rest").build();
+        return UriBuilder.fromUri("https://powerful-thicket-8477.herokuapp.com/sdelab").build();
     }
 }
