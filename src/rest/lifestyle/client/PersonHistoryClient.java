@@ -124,16 +124,6 @@ public class PersonHistoryClient {
 		return target.request().accept(mediaType).get();
 	}
 	
-//	/**
-//	 * 
-//	 * @param target
-//	 * @param mediaType
-//	 * @return
-//	 */
-//	private Response fetchPutResponse(final WebTarget target, String body, String mediaType) {
-//		return target.request().accept(mediaType).put(Entity.entity(body, mediaType));
-//	}
-//	
 	/**
 	 * 
 	 * @param target
