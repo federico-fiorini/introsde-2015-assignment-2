@@ -1,5 +1,5 @@
 ============================================================
-Server base URL: https://powerful-thicket-8477.herokuapp.com/sdelab
+Server base URL: https://powerful-thicket-8477.herokuapp.com
 ============================================================
 Request #1: GET /person Accept: application/xml
 => Result: OK
@@ -7,8 +7,8 @@ Request #1: GET /person Accept: application/xml
 <people>
    <person>
       <id>1</id>
-      <firstname>Daniel</firstname>
-      <lastname>Brosal</lastname>
+      <firstname>Sarai</firstname>
+      <lastname>Cardoso</lastname>
       <birthdate>1978-09-01T22:00:00Z</birthdate>
       <healthProfile>
          <measurement>
@@ -19,8 +19,15 @@ Request #1: GET /person Accept: application/xml
             <units>cm</units>
          </measurement>
          <measurement>
-            <mid>1</mid>
-            <created>2015-06-06T22:00:00Z</created>
+            <mid>815</mid>
+            <created>2015-06-06T21:58:20Z</created>
+            <measure>steps</measure>
+            <value>6655</value>
+            <units>steps</units>
+         </measurement>
+         <measurement>
+            <mid>782</mid>
+            <created>2015-11-21T23:00:00Z</created>
             <measure>weight</measure>
             <value>66.5</value>
             <units>kg</units>
@@ -34,10 +41,10 @@ Request #1: GET /person Accept: application/xml
       <birthdate>1978-09-01T22:00:00Z</birthdate>
       <healthProfile>
          <measurement>
-            <mid>215</mid>
-            <created>2015-12-07T23:00:00Z</created>
+            <mid>214</mid>
+            <created>2015-12-06T23:00:00Z</created>
             <measure>height</measure>
-            <value>184</value>
+            <value>179</value>
             <units>cm</units>
          </measurement>
          <measurement>
@@ -54,7 +61,29 @@ Request #1: GET /person Accept: application/xml
       <firstname>Palincosin</firstname>
       <lastname>Perez</lastname>
       <birthdate>1978-09-01T22:00:00Z</birthdate>
-      <healthProfile/>
+      <healthProfile>
+         <measurement>
+            <mid>582</mid>
+            <created>2015-11-20T23:00:00Z</created>
+            <measure>height</measure>
+            <value>165</value>
+            <units>cm</units>
+         </measurement>
+         <measurement>
+            <mid>745</mid>
+            <created>2011-12-08T06:20:00Z</created>
+            <measure>steps</measure>
+            <value>12334</value>
+            <units>steps</units>
+         </measurement>
+         <measurement>
+            <mid>568</mid>
+            <created>2015-11-20T23:00:00Z</created>
+            <measure>weight</measure>
+            <value>46</value>
+            <units>kg</units>
+         </measurement>
+      </healthProfile>
    </person>
    <person>
       <id>4</id>
@@ -68,55 +97,13 @@ Request #1: GET /person Accept: application/xml
       <firstname>Pablo</firstname>
       <lastname>Villa</lastname>
       <birthdate>1982-10-31T23:00:00Z</birthdate>
-      <healthProfile/>
-   </person>
-   <person>
-      <id>56</id>
-      <firstname>Sarai</firstname>
-      <birthdate>1978-09-01T22:00:00Z</birthdate>
-      <healthProfile/>
-   </person>
-   <person>
-      <id>556</id>
-      <firstname>Andrea</firstname>
-      <lastname>Martini</lastname>
-      <birthdate>1978-09-01T22:00:00Z</birthdate>
       <healthProfile>
          <measurement>
-            <mid>516</mid>
-            <created>2015-11-16T23:00:00Z</created>
-            <measure>height</measure>
-            <value>177</value>
-            <units>cm</units>
-         </measurement>
-         <measurement>
-            <mid>515</mid>
-            <created>2015-11-16T23:00:00Z</created>
-            <measure>weight</measure>
-            <value>77</value>
-            <units>kg</units>
-         </measurement>
-      </healthProfile>
-   </person>
-   <person>
-      <id>557</id>
-      <firstname>Daniela</firstname>
-      <lastname>Martini</lastname>
-      <birthdate>1978-09-01T22:00:00Z</birthdate>
-      <healthProfile>
-         <measurement>
-            <mid>518</mid>
-            <created>2015-11-16T23:00:00Z</created>
-            <measure>height</measure>
-            <value>157</value>
-            <units>cm</units>
-         </measurement>
-         <measurement>
-            <mid>517</mid>
-            <created>2015-11-16T23:00:00Z</created>
-            <measure>weight</measure>
-            <value>47</value>
-            <units>kg</units>
+            <mid>758</mid>
+            <created>2011-12-08T23:00:00Z</created>
+            <measure>steps</measure>
+            <value>11222</value>
+            <units>steps</units>
          </measurement>
       </healthProfile>
    </person>
@@ -128,8 +115,8 @@ Request #2: GET /person/1 Accept: application/xml
 => HTTP Status: 200
 <person>
    <id>1</id>
-   <firstname>Daniel</firstname>
-   <lastname>Brosal</lastname>
+   <firstname>Sarai</firstname>
+   <lastname>Cardoso</lastname>
    <birthdate>1978-09-01T22:00:00Z</birthdate>
    <healthProfile>
       <measurement>
@@ -140,8 +127,15 @@ Request #2: GET /person/1 Accept: application/xml
          <units>cm</units>
       </measurement>
       <measurement>
-         <mid>1</mid>
-         <created>2015-06-06T22:00:00Z</created>
+         <mid>815</mid>
+         <created>2015-06-06T21:58:20Z</created>
+         <measure>steps</measure>
+         <value>6655</value>
+         <units>steps</units>
+      </measurement>
+      <measurement>
+         <mid>782</mid>
+         <created>2015-11-21T23:00:00Z</created>
          <measure>weight</measure>
          <value>66.5</value>
          <units>kg</units>
@@ -156,7 +150,7 @@ Request #3: PUT /person/1 Accept: application/xml Content-Type: application/xml
 <person>
    <id>1</id>
    <firstname>NEW NAME XML</firstname>
-   <lastname>Brosal</lastname>
+   <lastname>Cardoso</lastname>
    <birthdate>1978-09-01T22:00:00Z</birthdate>
    <healthProfile>
       <measurement>
@@ -167,8 +161,15 @@ Request #3: PUT /person/1 Accept: application/xml Content-Type: application/xml
          <units>cm</units>
       </measurement>
       <measurement>
-         <mid>1</mid>
-         <created>2015-06-06T22:00:00Z</created>
+         <mid>815</mid>
+         <created>2015-06-06T21:58:20Z</created>
+         <measure>steps</measure>
+         <value>6655</value>
+         <units>steps</units>
+      </measurement>
+      <measurement>
+         <mid>782</mid>
+         <created>2015-11-21T23:00:00Z</created>
          <measure>weight</measure>
          <value>66.5</value>
          <units>kg</units>
@@ -181,21 +182,21 @@ Request #4: POST /person Accept: application/xml Content-Type: application/xml
 => Result: OK
 => HTTP Status: 201
 <person>
-   <id>611</id>
+   <id>706</id>
    <firstname>Chuck</firstname>
    <lastname>Norris</lastname>
    <birthdate>1945-01-01T00:00:00Z</birthdate>
    <healthProfile>
       <measurement>
-         <mid>580</mid>
-         <created>2015-11-22T16:31:27.003Z</created>
+         <mid>817</mid>
+         <created>2015-11-23T09:00:14.736Z</created>
          <measure>height</measure>
          <value>172</value>
          <units>cm</units>
       </measurement>
       <measurement>
-         <mid>579</mid>
-         <created>2015-11-22T16:31:27.003Z</created>
+         <mid>816</mid>
+         <created>2015-11-23T09:00:14.736Z</created>
          <measure>weight</measure>
          <value>78.9</value>
          <units>kg</units>
@@ -204,17 +205,18 @@ Request #4: POST /person Accept: application/xml Content-Type: application/xml
 </person>
 
 ============================================================
-Request #5: DELETE /person/612
+Request #5: DELETE /person/707
 => Result: OK
 => HTTP Status: 204
 
 ============================================================
 Request #6: GET /measureTypes Accept: application/xml
-=> Result: ERROR
+=> Result: OK
 => HTTP Status: 200
 <measureTypes>
    <measureType>weight</measureType>
    <measureType>height</measureType>
+   <measureType>steps</measureType>
 </measureTypes>
 
 ============================================================
@@ -222,6 +224,13 @@ Request #7: GET /person/1/weight Accept: application/xml
 => Result: OK
 => HTTP Status: 200
 <measureHistory>
+   <measure>
+      <mid>782</mid>
+      <created>2015-11-21T23:00:00Z</created>
+      <measure>weight</measure>
+      <value>66.5</value>
+      <units>kg</units>
+   </measure>
    <measure>
       <mid>1</mid>
       <created>2015-06-06T22:00:00Z</created>
@@ -244,29 +253,8 @@ Request #7: GET /person/1/weight Accept: application/xml
       <units>kg</units>
    </measure>
    <measure>
-      <mid>571</mid>
-      <created>2011-12-09T00:00:00Z</created>
-      <measure>weight</measure>
-      <value>72</value>
-      <units>kg</units>
-   </measure>
-   <measure>
-      <mid>572</mid>
-      <created>2011-12-09T00:00:00Z</created>
-      <measure>weight</measure>
-      <value>72</value>
-      <units>kg</units>
-   </measure>
-   <measure>
-      <mid>577</mid>
-      <created>2011-12-09T00:00:00Z</created>
-      <measure>weight</measure>
-      <value>72</value>
-      <units>kg</units>
-   </measure>
-   <measure>
-      <mid>578</mid>
-      <created>2011-12-09T00:00:00Z</created>
+      <mid>779</mid>
+      <created>2011-12-08T23:00:00Z</created>
       <measure>weight</measure>
       <value>72</value>
       <units>kg</units>
@@ -292,148 +280,174 @@ Request #7: GET /person/1/height Accept: application/xml
       <value>172</value>
       <units>cm</units>
    </measure>
-   <measure>
-      <mid>567</mid>
-      <created>2011-12-09T00:00:00Z</created>
-      <measure>height</measure>
-      <value>72</value>
-      <units>cm</units>
-   </measure>
-   <measure>
-      <mid>568</mid>
-      <created>2011-12-09T00:00:00Z</created>
-      <measure>height</measure>
-      <value>72</value>
-      <units>cm</units>
-   </measure>
 </measureHistory>
 
 ============================================================
-Request #7: GET /person/557/weight Accept: application/xml
+Request #7: GET /person/1/steps Accept: application/xml
 => Result: OK
 => HTTP Status: 200
 <measureHistory>
    <measure>
-      <mid>517</mid>
-      <created>2015-11-16T23:00:00Z</created>
+      <mid>815</mid>
+      <created>2015-06-06T21:58:20Z</created>
+      <measure>steps</measure>
+      <value>6655</value>
+      <units>steps</units>
+   </measure>
+</measureHistory>
+
+============================================================
+Request #7: GET /person/5/weight Accept: application/xml
+=> Result: ERROR
+=> HTTP Status: 200
+<measureHistory/>
+
+============================================================
+Request #7: GET /person/5/height Accept: application/xml
+=> Result: ERROR
+=> HTTP Status: 200
+<measureHistory/>
+
+============================================================
+Request #7: GET /person/5/steps Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<measureHistory>
+   <measure>
+      <mid>758</mid>
+      <created>2011-12-08T23:00:00Z</created>
+      <measure>steps</measure>
+      <value>11222</value>
+      <units>steps</units>
+   </measure>
+   <measure>
+      <mid>763</mid>
+      <created>2011-12-08T22:58:20Z</created>
+      <measure>steps</measure>
+      <value>7222</value>
+      <units>steps</units>
+   </measure>
+   <measure>
+      <mid>753</mid>
+      <created>2011-12-08T22:57:00Z</created>
+      <measure>steps</measure>
+      <value>12340</value>
+      <units>steps</units>
+   </measure>
+</measureHistory>
+
+============================================================
+Request #8: GET /person/5/steps/758 Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<measure>
+   <mid>758</mid>
+   <created>2011-12-08T23:00:00Z</created>
+   <measure>steps</measure>
+   <value>11222</value>
+   <units>steps</units>
+</measure>
+
+============================================================
+Request #9: GET /person/1/weight Accept: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<measureHistory>
+   <measure>
+      <mid>782</mid>
+      <created>2015-11-21T23:00:00Z</created>
       <measure>weight</measure>
-      <value>47</value>
+      <value>66.5</value>
+      <units>kg</units>
+   </measure>
+   <measure>
+      <mid>1</mid>
+      <created>2015-06-06T22:00:00Z</created>
+      <measure>weight</measure>
+      <value>66.5</value>
+      <units>kg</units>
+   </measure>
+   <measure>
+      <mid>2</mid>
+      <created>2015-06-06T22:00:00Z</created>
+      <measure>weight</measure>
+      <value>64</value>
+      <units>kg</units>
+   </measure>
+   <measure>
+      <mid>3</mid>
+      <created>2015-06-06T22:00:00Z</created>
+      <measure>weight</measure>
+      <value>58</value>
+      <units>kg</units>
+   </measure>
+   <measure>
+      <mid>779</mid>
+      <created>2011-12-08T23:00:00Z</created>
+      <measure>weight</measure>
+      <value>72</value>
       <units>kg</units>
    </measure>
 </measureHistory>
 
 ============================================================
-Request #7: GET /person/557/height Accept: application/xml
-=> Result: OK
-=> HTTP Status: 200
-<measureHistory>
-   <measure>
-      <mid>518</mid>
-      <created>2015-11-16T23:00:00Z</created>
-      <measure>height</measure>
-      <value>157</value>
-      <units>cm</units>
-   </measure>
-</measureHistory>
-
-============================================================
-Request #8: GET /person/557/height/518 Accept: application/xml
-=> Result: OK
-=> HTTP Status: 200
-<measure>
-   <mid>518</mid>
-   <created>2015-11-16T23:00:00Z</created>
-   <measure>height</measure>
-   <value>157</value>
-   <units>cm</units>
-</measure>
-
-============================================================
-Request #9: GET /person/1/height Accept: application/xml
-=> Result: OK
-=> HTTP Status: 200
-<measureHistory>
-   <measure>
-      <mid>4</mid>
-      <created>2015-06-06T22:00:00Z</created>
-      <measure>height</measure>
-      <value>170</value>
-      <units>cm</units>
-   </measure>
-   <measure>
-      <mid>5</mid>
-      <created>2015-06-06T22:00:00Z</created>
-      <measure>height</measure>
-      <value>172</value>
-      <units>cm</units>
-   </measure>
-   <measure>
-      <mid>567</mid>
-      <created>2011-12-09T00:00:00Z</created>
-      <measure>height</measure>
-      <value>72</value>
-      <units>cm</units>
-   </measure>
-   <measure>
-      <mid>568</mid>
-      <created>2011-12-09T00:00:00Z</created>
-      <measure>height</measure>
-      <value>72</value>
-      <units>cm</units>
-   </measure>
-</measureHistory>
-
-============================================================
-Request #9: POST /person/1/height Accept: application/xml Content-Type: application/xml
+Request #9: POST /person/1/weight Accept: application/xml Content-Type: application/xml
 => Result: OK
 => HTTP Status: 201
 <measure>
-   <mid>583</mid>
+   <mid>820</mid>
    <created>2011-12-09T00:00:00Z</created>
-   <measure>height</measure>
+   <measure>weight</measure>
    <value>72</value>
-   <units>cm</units>
+   <units>kg</units>
 </measure>
 
 ============================================================
-Request #9: GET /person/1/height Accept: application/xml
+Request #9: GET /person/1/weight Accept: application/xml
 => Result: OK
 => HTTP Status: 200
 <measureHistory>
    <measure>
-      <mid>4</mid>
+      <mid>782</mid>
+      <created>2015-11-21T23:00:00Z</created>
+      <measure>weight</measure>
+      <value>66.5</value>
+      <units>kg</units>
+   </measure>
+   <measure>
+      <mid>1</mid>
       <created>2015-06-06T22:00:00Z</created>
-      <measure>height</measure>
-      <value>170</value>
-      <units>cm</units>
+      <measure>weight</measure>
+      <value>66.5</value>
+      <units>kg</units>
    </measure>
    <measure>
-      <mid>5</mid>
+      <mid>2</mid>
       <created>2015-06-06T22:00:00Z</created>
-      <measure>height</measure>
-      <value>172</value>
-      <units>cm</units>
+      <measure>weight</measure>
+      <value>64</value>
+      <units>kg</units>
    </measure>
    <measure>
-      <mid>567</mid>
-      <created>2011-12-09T00:00:00Z</created>
-      <measure>height</measure>
-      <value>72</value>
-      <units>cm</units>
+      <mid>3</mid>
+      <created>2015-06-06T22:00:00Z</created>
+      <measure>weight</measure>
+      <value>58</value>
+      <units>kg</units>
    </measure>
    <measure>
-      <mid>568</mid>
+      <mid>820</mid>
       <created>2011-12-09T00:00:00Z</created>
-      <measure>height</measure>
+      <measure>weight</measure>
       <value>72</value>
-      <units>cm</units>
+      <units>kg</units>
    </measure>
    <measure>
-      <mid>583</mid>
-      <created>2011-12-09T00:00:00Z</created>
-      <measure>height</measure>
+      <mid>779</mid>
+      <created>2011-12-08T23:00:00Z</created>
+      <measure>weight</measure>
       <value>72</value>
-      <units>cm</units>
+      <units>kg</units>
    </measure>
 </measureHistory>
 

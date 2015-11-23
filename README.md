@@ -16,7 +16,7 @@ Project based the following [requirements](https://sites.google.com/a/unitn.it/i
 
 ######Worked in pair with Daniel Bruzual:
 	Git: https://github.com/djbb7/introsde-2015-assignment-2
-	Heroku: https://powerful-thicket-8477.herokuapp.com/sdelab
+	Heroku: https://powerful-thicket-8477.herokuapp.com
 	
 #####HOW TO RUN IT
 	# Clone the code from this repo

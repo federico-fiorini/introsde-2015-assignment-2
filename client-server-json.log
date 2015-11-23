@@ -1,13 +1,13 @@
 ============================================================
-Server base URL: https://powerful-thicket-8477.herokuapp.com/sdelab
+Server base URL: https://powerful-thicket-8477.herokuapp.com
 ============================================================
 Request #1: GET /person Accept: application/json
 => Result: OK
 => HTTP Status: 200
 [ {
   "id" : 1,
-  "firstname" : "Daniel",
-  "lastname" : "Brosal",
+  "firstname" : "Sarai",
+  "lastname" : "Cardoso",
   "birthdate" : 273535200000,
   "healthProfile" : [ {
     "mid" : 5,
@@ -16,8 +16,14 @@ Request #1: GET /person Accept: application/json
     "value" : "172",
     "units" : "cm"
   }, {
-    "mid" : 1,
-    "created" : 1433628000000,
+    "mid" : 815,
+    "created" : 1433627900000,
+    "measure" : "steps",
+    "value" : "6655",
+    "units" : "steps"
+  }, {
+    "mid" : 782,
+    "created" : 1448146800000,
     "measure" : "weight",
     "value" : "66.5",
     "units" : "kg"
@@ -28,10 +34,10 @@ Request #1: GET /person Accept: application/json
   "lastname" : "Brosal",
   "birthdate" : 273535200000,
   "healthProfile" : [ {
-    "mid" : 215,
-    "created" : 1449529200000,
+    "mid" : 214,
+    "created" : 1449442800000,
     "measure" : "height",
-    "value" : "184",
+    "value" : "179",
     "units" : "cm"
   }, {
     "mid" : 6,
@@ -45,7 +51,25 @@ Request #1: GET /person Accept: application/json
   "firstname" : "Palincosin",
   "lastname" : "Perez",
   "birthdate" : 273535200000,
-  "healthProfile" : [ ]
+  "healthProfile" : [ {
+    "mid" : 582,
+    "created" : 1448060400000,
+    "measure" : "height",
+    "value" : "165",
+    "units" : "cm"
+  }, {
+    "mid" : 745,
+    "created" : 1323325200000,
+    "measure" : "steps",
+    "value" : "12334",
+    "units" : "steps"
+  }, {
+    "mid" : 568,
+    "created" : 1448060400000,
+    "measure" : "weight",
+    "value" : "46",
+    "units" : "kg"
+  } ]
 }, {
   "id" : 4,
   "firstname" : "Peteros",
@@ -57,48 +81,12 @@ Request #1: GET /person Accept: application/json
   "firstname" : "Pablo",
   "lastname" : "Villa",
   "birthdate" : 404953200000,
-  "healthProfile" : [ ]
-}, {
-  "id" : 56,
-  "firstname" : "Sarai",
-  "lastname" : null,
-  "birthdate" : 273535200000,
-  "healthProfile" : [ ]
-}, {
-  "id" : 556,
-  "firstname" : "Andrea",
-  "lastname" : "Martini",
-  "birthdate" : 273535200000,
   "healthProfile" : [ {
-    "mid" : 516,
-    "created" : 1447714800000,
-    "measure" : "height",
-    "value" : "177",
-    "units" : "cm"
-  }, {
-    "mid" : 515,
-    "created" : 1447714800000,
-    "measure" : "weight",
-    "value" : "77",
-    "units" : "kg"
-  } ]
-}, {
-  "id" : 557,
-  "firstname" : "Daniela",
-  "lastname" : "Martini",
-  "birthdate" : 273535200000,
-  "healthProfile" : [ {
-    "mid" : 518,
-    "created" : 1447714800000,
-    "measure" : "height",
-    "value" : "157",
-    "units" : "cm"
-  }, {
-    "mid" : 517,
-    "created" : 1447714800000,
-    "measure" : "weight",
-    "value" : "47",
-    "units" : "kg"
+    "mid" : 758,
+    "created" : 1323385200000,
+    "measure" : "steps",
+    "value" : "11222",
+    "units" : "steps"
   } ]
 } ]
 ============================================================
@@ -107,8 +95,8 @@ Request #2: GET /person/1 Accept: application/json
 => HTTP Status: 200
 {
   "id" : 1,
-  "firstname" : "Daniel",
-  "lastname" : "Brosal",
+  "firstname" : "Sarai",
+  "lastname" : "Cardoso",
   "birthdate" : 273535200000,
   "healthProfile" : [ {
     "mid" : 5,
@@ -117,8 +105,14 @@ Request #2: GET /person/1 Accept: application/json
     "value" : "172",
     "units" : "cm"
   }, {
-    "mid" : 1,
-    "created" : 1433628000000,
+    "mid" : 815,
+    "created" : 1433627900000,
+    "measure" : "steps",
+    "value" : "6655",
+    "units" : "steps"
+  }, {
+    "mid" : 782,
+    "created" : 1448146800000,
     "measure" : "weight",
     "value" : "66.5",
     "units" : "kg"
@@ -131,7 +125,7 @@ Request #3: PUT /person/1 Accept: application/json Content-Type: application/jso
 {
   "id" : 1,
   "firstname" : "NEW NAME JSON",
-  "lastname" : "Brosal",
+  "lastname" : "Cardoso",
   "birthdate" : 273535200000,
   "healthProfile" : [ {
     "mid" : 5,
@@ -140,8 +134,14 @@ Request #3: PUT /person/1 Accept: application/json Content-Type: application/jso
     "value" : "172",
     "units" : "cm"
   }, {
-    "mid" : 1,
-    "created" : 1433628000000,
+    "mid" : 815,
+    "created" : 1433627900000,
+    "measure" : "steps",
+    "value" : "6655",
+    "units" : "steps"
+  }, {
+    "mid" : 782,
+    "created" : 1448146800000,
     "measure" : "weight",
     "value" : "66.5",
     "units" : "kg"
@@ -152,41 +152,47 @@ Request #4: POST /person Accept: application/json Content-Type: application/json
 => Result: OK
 => HTTP Status: 201
 {
-  "id" : 612,
+  "id" : 707,
   "firstname" : "Chuck",
   "lastname" : "Norris",
   "birthdate" : -788918400000,
   "healthProfile" : [ {
-    "mid" : 582,
-    "created" : 1448209887370,
+    "mid" : 819,
+    "created" : 1448269215257,
     "measure" : "height",
     "value" : "172",
     "units" : "cm"
   }, {
-    "mid" : 581,
-    "created" : 1448209887370,
+    "mid" : 818,
+    "created" : 1448269215257,
     "measure" : "weight",
     "value" : "78.9",
     "units" : "kg"
   } ]
 }
 ============================================================
-Request #5: DELETE /person/612
+Request #5: DELETE /person/707
 => Result: OK
 => HTTP Status: 204
 
 ============================================================
 Request #6: GET /measureTypes Accept: application/json
-=> Result: ERROR
+=> Result: OK
 => HTTP Status: 200
 {
-  "measureType" : [ "weight", "height" ]
+  "measureType" : [ "weight", "height", "steps" ]
 }
 ============================================================
 Request #7: GET /person/1/weight Accept: application/json
 => Result: OK
 => HTTP Status: 200
 [ {
+  "mid" : 782,
+  "created" : 1448146800000,
+  "measure" : "weight",
+  "value" : "66.5",
+  "units" : "kg"
+}, {
   "mid" : 1,
   "created" : 1433628000000,
   "measure" : "weight",
@@ -205,26 +211,8 @@ Request #7: GET /person/1/weight Accept: application/json
   "value" : "58",
   "units" : "kg"
 }, {
-  "mid" : 571,
-  "created" : 1323388800000,
-  "measure" : "weight",
-  "value" : "72",
-  "units" : "kg"
-}, {
-  "mid" : 572,
-  "created" : 1323388800000,
-  "measure" : "weight",
-  "value" : "72",
-  "units" : "kg"
-}, {
-  "mid" : 577,
-  "created" : 1323388800000,
-  "measure" : "weight",
-  "value" : "72",
-  "units" : "kg"
-}, {
-  "mid" : 578,
-  "created" : 1323388800000,
+  "mid" : 779,
+  "created" : 1323385200000,
   "measure" : "weight",
   "value" : "72",
   "units" : "kg"
@@ -245,136 +233,158 @@ Request #7: GET /person/1/height Accept: application/json
   "measure" : "height",
   "value" : "172",
   "units" : "cm"
-}, {
-  "mid" : 567,
-  "created" : 1323388800000,
-  "measure" : "height",
-  "value" : "72",
-  "units" : "cm"
-}, {
-  "mid" : 568,
-  "created" : 1323388800000,
-  "measure" : "height",
-  "value" : "72",
-  "units" : "cm"
 } ]
 ============================================================
-Request #7: GET /person/557/weight Accept: application/json
+Request #7: GET /person/1/steps Accept: application/json
 => Result: OK
 => HTTP Status: 200
 [ {
-  "mid" : 517,
-  "created" : 1447714800000,
+  "mid" : 815,
+  "created" : 1433627900000,
+  "measure" : "steps",
+  "value" : "6655",
+  "units" : "steps"
+} ]
+============================================================
+Request #7: GET /person/5/weight Accept: application/json
+=> Result: ERROR
+=> HTTP Status: 200
+[ ]
+============================================================
+Request #7: GET /person/5/height Accept: application/json
+=> Result: ERROR
+=> HTTP Status: 200
+[ ]
+============================================================
+Request #7: GET /person/5/steps Accept: application/json
+=> Result: OK
+=> HTTP Status: 200
+[ {
+  "mid" : 758,
+  "created" : 1323385200000,
+  "measure" : "steps",
+  "value" : "11222",
+  "units" : "steps"
+}, {
+  "mid" : 763,
+  "created" : 1323385100000,
+  "measure" : "steps",
+  "value" : "7222",
+  "units" : "steps"
+}, {
+  "mid" : 753,
+  "created" : 1323385020000,
+  "measure" : "steps",
+  "value" : "12340",
+  "units" : "steps"
+} ]
+============================================================
+Request #8: GET /person/5/steps/758 Accept: application/json
+=> Result: OK
+=> HTTP Status: 200
+{
+  "mid" : 758,
+  "created" : 1323385200000,
+  "measure" : "steps",
+  "value" : "11222",
+  "units" : "steps"
+}
+============================================================
+Request #9: GET /person/1/weight Accept: application/json
+=> Result: OK
+=> HTTP Status: 200
+[ {
+  "mid" : 782,
+  "created" : 1448146800000,
   "measure" : "weight",
-  "value" : "47",
+  "value" : "66.5",
+  "units" : "kg"
+}, {
+  "mid" : 1,
+  "created" : 1433628000000,
+  "measure" : "weight",
+  "value" : "66.5",
+  "units" : "kg"
+}, {
+  "mid" : 2,
+  "created" : 1433628000000,
+  "measure" : "weight",
+  "value" : "64",
+  "units" : "kg"
+}, {
+  "mid" : 3,
+  "created" : 1433628000000,
+  "measure" : "weight",
+  "value" : "58",
+  "units" : "kg"
+}, {
+  "mid" : 820,
+  "created" : 1323388800000,
+  "measure" : "weight",
+  "value" : "72",
+  "units" : "kg"
+}, {
+  "mid" : 779,
+  "created" : 1323385200000,
+  "measure" : "weight",
+  "value" : "72",
   "units" : "kg"
 } ]
 ============================================================
-Request #7: GET /person/557/height Accept: application/json
-=> Result: OK
-=> HTTP Status: 200
-[ {
-  "mid" : 518,
-  "created" : 1447714800000,
-  "measure" : "height",
-  "value" : "157",
-  "units" : "cm"
-} ]
-============================================================
-Request #8: GET /person/557/height/518 Accept: application/json
-=> Result: OK
-=> HTTP Status: 200
-{
-  "mid" : 518,
-  "created" : 1447714800000,
-  "measure" : "height",
-  "value" : "157",
-  "units" : "cm"
-}
-============================================================
-Request #9: GET /person/1/height Accept: application/json
-=> Result: OK
-=> HTTP Status: 200
-[ {
-  "mid" : 4,
-  "created" : 1433628000000,
-  "measure" : "height",
-  "value" : "170",
-  "units" : "cm"
-}, {
-  "mid" : 5,
-  "created" : 1433628000000,
-  "measure" : "height",
-  "value" : "172",
-  "units" : "cm"
-}, {
-  "mid" : 567,
-  "created" : 1323388800000,
-  "measure" : "height",
-  "value" : "72",
-  "units" : "cm"
-}, {
-  "mid" : 568,
-  "created" : 1323388800000,
-  "measure" : "height",
-  "value" : "72",
-  "units" : "cm"
-}, {
-  "mid" : 583,
-  "created" : 1323388800000,
-  "measure" : "height",
-  "value" : "72",
-  "units" : "cm"
-} ]
-============================================================
-Request #9: POST /person/1/height Accept: application/json Content-Type: application/json
+Request #9: POST /person/1/weight Accept: application/json Content-Type: application/json
 => Result: OK
 => HTTP Status: 201
 {
-  "mid" : 584,
+  "mid" : 821,
   "created" : 1323388800000,
-  "measure" : "height",
+  "measure" : "weight",
   "value" : "72",
-  "units" : "cm"
+  "units" : "kg"
 }
 ============================================================
-Request #9: GET /person/1/height Accept: application/json
+Request #9: GET /person/1/weight Accept: application/json
 => Result: OK
 => HTTP Status: 200
 [ {
-  "mid" : 4,
+  "mid" : 782,
+  "created" : 1448146800000,
+  "measure" : "weight",
+  "value" : "66.5",
+  "units" : "kg"
+}, {
+  "mid" : 1,
   "created" : 1433628000000,
-  "measure" : "height",
-  "value" : "170",
-  "units" : "cm"
+  "measure" : "weight",
+  "value" : "66.5",
+  "units" : "kg"
 }, {
-  "mid" : 5,
+  "mid" : 2,
   "created" : 1433628000000,
-  "measure" : "height",
-  "value" : "172",
-  "units" : "cm"
+  "measure" : "weight",
+  "value" : "64",
+  "units" : "kg"
 }, {
-  "mid" : 567,
-  "created" : 1323388800000,
-  "measure" : "height",
-  "value" : "72",
-  "units" : "cm"
+  "mid" : 3,
+  "created" : 1433628000000,
+  "measure" : "weight",
+  "value" : "58",
+  "units" : "kg"
 }, {
-  "mid" : 568,
+  "mid" : 820,
   "created" : 1323388800000,
-  "measure" : "height",
+  "measure" : "weight",
   "value" : "72",
-  "units" : "cm"
+  "units" : "kg"
 }, {
-  "mid" : 583,
+  "mid" : 821,
   "created" : 1323388800000,
-  "measure" : "height",
+  "measure" : "weight",
   "value" : "72",
-  "units" : "cm"
+  "units" : "kg"
 }, {
-  "mid" : 584,
-  "created" : 1323388800000,
-  "measure" : "height",
+  "mid" : 779,
+  "created" : 1323385200000,
+  "measure" : "weight",
   "value" : "72",
-  "units" : "cm"
+  "units" : "kg"
 } ]

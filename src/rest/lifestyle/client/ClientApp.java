@@ -561,6 +561,6 @@ public class ClientApp {
 	 * @return
 	 */
     private static URI getBaseURI() {
-        return UriBuilder.fromUri("https://powerful-thicket-8477.herokuapp.com/sdelab").build();
+        return UriBuilder.fromUri("https://powerful-thicket-8477.herokuapp.com").build();
     }
 }
